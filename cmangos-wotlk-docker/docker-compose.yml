@@ -7,27 +7,21 @@ services:
     ports:
       - "8085:8085"
       - "3724:3724"
-    depends_on:
-      - db
-    links:
-      - db:db
-    volumes:
-      - /docker_data/cmangos-wotlk:/home/mangos/run/etc/
-    environment:
-      MYSQL_ROOT_PASSWORD: toor
 
-  db:
-    image: mysql
-    container_name: cmangos-wotlk-db
-    ports:
-      - "3306:3306"
+
+    links:
+      - mariadb:db
+    volumes:
+      - /home/docker/mangos/cmangos-wotlk:/home/mangos/run/etc/
     environment:
-      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_ROOT_PASSWORD: Have-Fun123
+
 
   register:
     image: lacsap/cmangos-web-register
     container_name: cmangos-wotlk-register
     ports:
-      - "8080:80"
+      - "7080:80"
+
     links:
-      - db:db
+      - mariadb:db

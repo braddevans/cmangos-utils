@@ -3,7 +3,7 @@
 ############################################################
 FROM ubuntu:14.04
 
-ENV MYSQL_ROOT_PASSWORD Have-Fun123
+ENV MYSQL_ROOT_PASSWORD oof
 
 RUN apt-get update
 RUN apt-get install -y build-essential gcc g++ automake git-core \
